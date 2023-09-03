@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Poppins:wght@200;400;600&family=Space+Mono:wght@700&display=swap"
+    rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <title>Tip calculator</title>
+  <script src="js/script.js"></script>
+</head>
+
+<body class="body">
+  <div class="container">
+    <div class="elements">
+      <div class="bill">
+        <p class="titleElements">Bill</p>
+        <input oninput="countTipAndTotal(); cantBeZero();" class="bill_input" type="number" step="0.1" placeholder="$">
+      </div>
+      <p class="titleElements">Select Tip %</p>
+      <div class="selectTip">
+        <div class="button-row first-row">
+          <button onclick="activateButton(1); countTipAndTotal()" class="button">5%</button>
+          <button onclick="activateButton(2); countTipAndTotal()" class="button">10%</button>
+          <button onclick="activateButton(3); countTipAndTotal()" class="button">15%</button>
+        </div>
+        <div class="button-row">
+          <button onclick="activateButton(4); countTipAndTotal()" class="button">25%</button>
+          <button onclick="activateButton(5); countTipAndTotal()" class="button">50%</button>
+          <input oninput="activateButtonCustom(); countTipAndTotalCustom()" class="button button_custom" type="number" placeholder="Custom">
+        </div>
+      </div>
+      <div class="number">
+        <p class="titleElements">Number of People</p>
+        <input class="people_input" oninput="countTipAndTotal(); cantBeZero();" type="number" placeholder="ludek">
+      </div>
+    </div>
+    <div class="summary">
+      <div class="summary-section">
+        <div class="tip-amount-summary">
+          <div class="tip-total-amount">
+            <p class="text-summary">Tip Amount</p>
+            <p class="text-secondary">/ person</p>
+          </div>
+          <p>
+            <span class="summary-outcome tipResult"></span>
+          </p>
+        </div>
+        <div class="total-amount-summary">
+          <div class="tip-total-amount">
+            <p class="text-summary">Total</p>
+            <p class="text-secondary">/ person</p>
+          </div>
+          <p>
+            <span class="summary-outcome personResult"></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="reset-section">
+        <button onclick="reset()" class="reset">Reset</button>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
